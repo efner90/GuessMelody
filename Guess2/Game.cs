@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Guess2
+namespace GuessMelody
 {
     public partial class fGame : Form
     {
@@ -20,7 +20,7 @@ namespace Guess2
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            //WMPLib.URL = 
+            WMP.URL = Victorine.musicList[1];
         }
     }
 }

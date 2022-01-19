@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Guess2
+namespace GuessMelody
 {
     public partial class fMain : Form
     {
         fParams fp = new fParams(); //создаём экземпляр вне класса и кнопки
+        fGame fg = new fGame();
 
         public fMain()
         {
@@ -21,7 +22,7 @@ namespace Guess2
 
         private void btnGame_Click(object sender, EventArgs e)
         {
-
+            fg.ShowDialog();
         }
 
         private void btnParams_Click(object sender, EventArgs e)
