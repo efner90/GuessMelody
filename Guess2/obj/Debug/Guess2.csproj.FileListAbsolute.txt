@@ -8,11 +8,11 @@ c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.csproj.SuggestedBin
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Interop.WMPLib.dll
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\AxInterop.WMPLib.dll
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.csproj.ResolveComReference.cache
-c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.fMain.resources
-c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.fGame.resources
-c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.fParams.resources
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.Properties.Resources.resources
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.csproj.GenerateResource.cache
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.csproj.CoreCompileInputs.cache
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.exe
 c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.pdb
+C:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\GuessMelody.fMain.resources
+C:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\GuessMelody.fGame.resources
+C:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\GuessMelody.fParams.resources

@@ -34,6 +34,13 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbFolders = new System.Windows.Forms.CheckBox();
+            this.gbSetting = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbMusicDuration = new System.Windows.Forms.ComboBox();
+            this.cbGameDuration = new System.Windows.Forms.ComboBox();
+            this.cbRandomPlace = new System.Windows.Forms.CheckBox();
+            this.gbSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -41,7 +48,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(461, 225);
+            this.listBox1.Size = new System.Drawing.Size(473, 225);
             this.listBox1.TabIndex = 0;
             // 
             // btnSelectFolder
@@ -66,7 +73,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(146, 386);
+            this.btnOk.Location = new System.Drawing.Point(352, 388);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(121, 31);
             this.btnOk.TabIndex = 3;
@@ -76,9 +83,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(314, 386);
+            this.btnCancel.Location = new System.Drawing.Point(352, 434);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 31);
+            this.btnCancel.Size = new System.Drawing.Size(121, 31);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -94,11 +101,85 @@
             this.cbFolders.Text = "Inside folders";
             this.cbFolders.UseVisualStyleBackColor = true;
             // 
+            // gbSetting
+            // 
+            this.gbSetting.Controls.Add(this.cbRandomPlace);
+            this.gbSetting.Controls.Add(this.cbGameDuration);
+            this.gbSetting.Controls.Add(this.cbMusicDuration);
+            this.gbSetting.Controls.Add(this.label2);
+            this.gbSetting.Controls.Add(this.label1);
+            this.gbSetting.Location = new System.Drawing.Point(12, 289);
+            this.gbSetting.Name = "gbSetting";
+            this.gbSetting.Size = new System.Drawing.Size(334, 167);
+            this.gbSetting.TabIndex = 6;
+            this.gbSetting.TabStop = false;
+            this.gbSetting.Text = "Settings";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Game duration";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Music duration";
+            // 
+            // cbMusicDuration
+            // 
+            this.cbMusicDuration.FormattingEnabled = true;
+            this.cbMusicDuration.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30"});
+            this.cbMusicDuration.Location = new System.Drawing.Point(207, 55);
+            this.cbMusicDuration.Name = "cbMusicDuration";
+            this.cbMusicDuration.Size = new System.Drawing.Size(48, 21);
+            this.cbMusicDuration.TabIndex = 2;
+            this.cbMusicDuration.Text = "10";
+            // 
+            // cbGameDuration
+            // 
+            this.cbGameDuration.FormattingEnabled = true;
+            this.cbGameDuration.Items.AddRange(new object[] {
+            "30",
+            "45",
+            "60",
+            "90",
+            "120"});
+            this.cbGameDuration.Location = new System.Drawing.Point(207, 16);
+            this.cbGameDuration.Name = "cbGameDuration";
+            this.cbGameDuration.Size = new System.Drawing.Size(48, 21);
+            this.cbGameDuration.TabIndex = 3;
+            this.cbGameDuration.Text = "30";
+            // 
+            // cbRandomPlace
+            // 
+            this.cbRandomPlace.AutoSize = true;
+            this.cbRandomPlace.Location = new System.Drawing.Point(9, 99);
+            this.cbRandomPlace.Name = "cbRandomPlace";
+            this.cbRandomPlace.Size = new System.Drawing.Size(89, 17);
+            this.cbRandomPlace.TabIndex = 4;
+            this.cbRandomPlace.Text = "Random start";
+            this.cbRandomPlace.UseVisualStyleBackColor = true;
+            // 
             // fParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 442);
+            this.ClientSize = new System.Drawing.Size(485, 477);
+            this.Controls.Add(this.gbSetting);
             this.Controls.Add(this.cbFolders);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
@@ -107,6 +188,8 @@
             this.Controls.Add(this.listBox1);
             this.Name = "fParams";
             this.Text = "Params";
+            this.gbSetting.ResumeLayout(false);
+            this.gbSetting.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +203,11 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox cbFolders;
+        private System.Windows.Forms.GroupBox gbSetting;
+        private System.Windows.Forms.ComboBox cbGameDuration;
+        private System.Windows.Forms.ComboBox cbMusicDuration;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbRandomPlace;
     }
 }
