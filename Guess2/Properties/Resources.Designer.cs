@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GuessMelody.Properties {
+namespace Guess2.Properties {
     using System;
     
     
@@ -66,6 +66,16 @@ namespace GuessMelody.Properties {
         internal static System.Drawing.Bitmap Kachestvennaya_onlajn_1 {
             get {
                 object obj = ResourceManager.GetObject("Kachestvennaya-onlajn-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Kachestvennaya_onlajn_11 {
+            get {
+                object obj = ResourceManager.GetObject("Kachestvennaya-onlajn-11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -35,11 +35,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbFolders = new System.Windows.Forms.CheckBox();
             this.gbSetting = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbMusicDuration = new System.Windows.Forms.ComboBox();
-            this.cbGameDuration = new System.Windows.Forms.ComboBox();
             this.cbRandomPlace = new System.Windows.Forms.CheckBox();
+            this.cbGameDuration = new System.Windows.Forms.ComboBox();
+            this.cbMusicDuration = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbSetting.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +53,7 @@
             // 
             // btnSelectFolder
             // 
-            this.btnSelectFolder.Location = new System.Drawing.Point(0, 241);
+            this.btnSelectFolder.Location = new System.Drawing.Point(12, 241);
             this.btnSelectFolder.Name = "btnSelectFolder";
             this.btnSelectFolder.Size = new System.Drawing.Size(126, 30);
             this.btnSelectFolder.TabIndex = 1;
@@ -73,7 +73,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(352, 388);
+            this.btnOk.Location = new System.Drawing.Point(352, 380);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(121, 31);
             this.btnOk.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(352, 434);
+            this.btnCancel.Location = new System.Drawing.Point(352, 425);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(121, 31);
             this.btnCancel.TabIndex = 4;
@@ -100,6 +100,7 @@
             this.cbFolders.TabIndex = 5;
             this.cbFolders.Text = "Inside folders";
             this.cbFolders.UseVisualStyleBackColor = true;
+            this.cbFolders.CheckedChanged += new System.EventHandler(this.cbFolders_CheckedChanged);
             // 
             // gbSetting
             // 
@@ -115,23 +116,31 @@
             this.gbSetting.TabStop = false;
             this.gbSetting.Text = "Settings";
             // 
-            // label1
+            // cbRandomPlace
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Game duration";
+            this.cbRandomPlace.AutoSize = true;
+            this.cbRandomPlace.Location = new System.Drawing.Point(9, 99);
+            this.cbRandomPlace.Name = "cbRandomPlace";
+            this.cbRandomPlace.Size = new System.Drawing.Size(89, 17);
+            this.cbRandomPlace.TabIndex = 4;
+            this.cbRandomPlace.Text = "Random start";
+            this.cbRandomPlace.UseVisualStyleBackColor = true;
+            this.cbRandomPlace.CheckedChanged += new System.EventHandler(this.cbRandomPlace_CheckedChanged);
             // 
-            // label2
+            // cbGameDuration
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Music duration";
+            this.cbGameDuration.FormattingEnabled = true;
+            this.cbGameDuration.Items.AddRange(new object[] {
+            "30",
+            "45",
+            "60",
+            "90",
+            "120"});
+            this.cbGameDuration.Location = new System.Drawing.Point(207, 21);
+            this.cbGameDuration.Name = "cbGameDuration";
+            this.cbGameDuration.Size = new System.Drawing.Size(48, 21);
+            this.cbGameDuration.TabIndex = 3;
+            this.cbGameDuration.Text = "30";
             // 
             // cbMusicDuration
             // 
@@ -149,30 +158,23 @@
             this.cbMusicDuration.TabIndex = 2;
             this.cbMusicDuration.Text = "10";
             // 
-            // cbGameDuration
+            // label2
             // 
-            this.cbGameDuration.FormattingEnabled = true;
-            this.cbGameDuration.Items.AddRange(new object[] {
-            "30",
-            "45",
-            "60",
-            "90",
-            "120"});
-            this.cbGameDuration.Location = new System.Drawing.Point(207, 16);
-            this.cbGameDuration.Name = "cbGameDuration";
-            this.cbGameDuration.Size = new System.Drawing.Size(48, 21);
-            this.cbGameDuration.TabIndex = 3;
-            this.cbGameDuration.Text = "30";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Music duration";
             // 
-            // cbRandomPlace
+            // label1
             // 
-            this.cbRandomPlace.AutoSize = true;
-            this.cbRandomPlace.Location = new System.Drawing.Point(9, 99);
-            this.cbRandomPlace.Name = "cbRandomPlace";
-            this.cbRandomPlace.Size = new System.Drawing.Size(89, 17);
-            this.cbRandomPlace.TabIndex = 4;
-            this.cbRandomPlace.Text = "Random start";
-            this.cbRandomPlace.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Game duration";
             // 
             // fParams
             // 
@@ -188,6 +190,7 @@
             this.Controls.Add(this.listBox1);
             this.Name = "fParams";
             this.Text = "Params";
+            this.Load += new System.EventHandler(this.fParams_Load);
             this.gbSetting.ResumeLayout(false);
             this.gbSetting.PerformLayout();
             this.ResumeLayout(false);

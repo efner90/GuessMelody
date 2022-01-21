@@ -20,7 +20,11 @@ namespace GuessMelody
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Victorine.WriteParam();
+            Victorine.allDirectories = cbFolders.Checked; //проверяем чекбокс внутренние папки
+            Victorine.gameDuration = Convert.ToInt32(cbGameDuration.Text); //прод игры
+            Victorine.musicDuration = Convert.ToInt32(cbMusicDuration.Text); //прод песни
+            Victorine.startRandom = cbRandomPlace.Checked; //рандомный старт
+            Victorine.WriteParam(); //и записали
             this.Hide();
         }
 
@@ -36,6 +40,7 @@ namespace GuessMelody
                     cbFolders.Checked ? //проверка на проставленность "?"
                     SearchOption.AllDirectories : //в положительном
                     SearchOption.TopDirectoryOnly); //":", в отрицательном
+                Victorine.lastFolder = fbd.SelectedPath; //сохраняем последнюю папку
                 listBox1.Items.Clear();
                 listBox1.Items.AddRange(musicList); //добавляем
                 Victorine.musicList.Clear();
@@ -48,9 +53,36 @@ namespace GuessMelody
             listBox1.Items.Clear ();
         }
 
+        void setParams()
+        {
+            //возвращаем что было
+            cbFolders.Checked = Victorine.allDirectories;
+            cbGameDuration.Text = Victorine.gameDuration.ToString();
+            cbMusicDuration.Text = Victorine.musicDuration.ToString();
+            cbRandomPlace.Checked = Victorine.startRandom;
+        }
+        
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            setParams();
             this.Hide ();
+        }
+
+        private void fParams_Load(object sender, EventArgs e)
+        {
+            setParams (); //прогружаем настройки что были
+            listBox1.Items.Clear();
+            listBox1.Items.AddRange(Victorine.musicList.ToArray()); //добавляем
+        }
+
+        private void cbFolders_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbRandomPlace_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

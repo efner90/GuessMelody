@@ -19,14 +19,21 @@ namespace GuessMelody
 
         public static void ReadMusic()
         {
-            string[] music_files = Directory.GetFiles(
-                lastFolder, 
-                "mp3",
-                allDirectories ? //? == if
-                SearchOption.AllDirectories : 
-                SearchOption.TopDirectoryOnly); // : ==else
-            musicList.Clear();
-            musicList.AddRange(music_files);
+            try
+            {
+                string[] music_files = Directory.GetFiles(
+                    lastFolder,
+                    "mp3",
+                    allDirectories ? //? == if
+                    SearchOption.AllDirectories :
+                    SearchOption.TopDirectoryOnly); // : ==else
+                musicList.Clear();
+                musicList.AddRange(music_files);
+            }
+            catch
+            {
+
+            }
         }
 
         public static string regKeyName = "SoftWare\\MyCompanyName\\GuessMelody";
@@ -60,9 +67,9 @@ namespace GuessMelody
                 {
                     lastFolder = (string)rk.GetValue("LastFolder");
                     gameDuration = (int)rk.GetValue("GameDuration");
-                    startRandom = Convert.ToBoolean(rk.GetValue("Random"));
+                    startRandom = Convert.ToBoolean(rk.GetValue("Random", false));
                     musicDuration = (int)rk.GetValue("MusicDuration");
-                    allDirectories = Convert.ToBoolean(rk.GetValue("AllDirectories"));
+                    allDirectories = Convert.ToBoolean(rk.GetValue("AllDirectories", false));
                 }
             }
             finally

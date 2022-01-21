@@ -13,14 +13,49 @@ namespace GuessMelody
 {
     public partial class fGame : Form
     {
+        static Random rnd = new Random();
+        
+
         public fGame()
         {
             InitializeComponent();
         }
 
+        void MakeMusic()
+        {
+            try
+            {
+                int musicCount = Victorine.musicList.Count() - 1;
+                int count = rnd.Next(0, musicCount);
+
+                if (count >= 0)
+                {
+                    
+                    //int count = rnd.Next(0, musicCount);
+                    WMP.URL = Victorine.musicList[count];
+                    Victorine.musicList.RemoveAt(count);
+                }
+                else
+                {
+                    WMP.Ctlcontrols.stop();
+                }
+            } catch
+            {
+                WMP.Ctlcontrols.stop();
+            }
+
+
+
+
+        }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            WMP.URL = Victorine.musicList[1];
+            MakeMusic();
+        }
+
+        private void fGame_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WMP.Ctlcontrols.stop();
         }
     }
 }

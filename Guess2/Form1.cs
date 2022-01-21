@@ -35,5 +35,11 @@ namespace GuessMelody
         {
             this.Close();
         }
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+            Victorine.ReadParam(); //загружается и сразу читаем параметры
+            Victorine.ReadMusic(); //читаем до захода в параметры
+        }
     }
 }
