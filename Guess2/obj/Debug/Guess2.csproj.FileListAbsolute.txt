@@ -16,3 +16,4 @@ c:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\Guess2.pdb
 C:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\GuessMelody.fMain.resources
 C:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\GuessMelody.fGame.resources
 C:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\GuessMelody.fParams.resources
+C:\Users\alexe\source\repos\GuessGit\Guess2\obj\Debug\GuessMelody.fMessage.resources

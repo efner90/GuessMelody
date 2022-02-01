@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Guess2.Properties {
+namespace GuessMelody.Properties {
     using System;
     
     

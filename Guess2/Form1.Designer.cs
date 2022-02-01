@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Guess2.Properties.Resources.Kachestvennaya_onlajn_11;
+            this.BackgroundImage = global::GuessMelody.Properties.Resources.Kachestvennaya_onlajn_11;
             this.ClientSize = new System.Drawing.Size(590, 485);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnParams);

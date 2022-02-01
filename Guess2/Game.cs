@@ -15,6 +15,7 @@ namespace GuessMelody
     {
         static Random rnd = new Random();
         int musicDuration = Victorine.musicDuration;
+        bool[] players = new bool[2];
         
 
         public fGame()
@@ -37,7 +38,10 @@ namespace GuessMelody
                     //int count = rnd.Next(0, musicCount);
                     WMP.URL = Victorine.musicList[count];
                     Victorine.musicList.RemoveAt(count);
-                    lblMusicCount.Text = Victorine.musicList.Count.ToString(); //передаём список оставшихся песен
+                    lblMusicCount.Text = Victorine.musicList.Count.ToString();
+                    //передаём список оставшихся песен
+                    players[0] = false;
+                    players[1] = false;
                 }
                 else
                 {
@@ -126,11 +130,16 @@ namespace GuessMelody
         }
         private void fGame_KeyDown(object sender, KeyEventArgs e) //нажатие в форме
         {
-            if (e.KeyData == Keys.A)
+            if (!timer1.Enabled) return; //если таймер не включён то просто возврат, иначе код ниже
+            if (players[0]==false && e.KeyData == Keys.A) 
+                //выбрана кнопка А, есчли ещё не отжимал(фолс) идём дальше и ставим тру,
+                //блокировав выбирать снова
             {
                 GamePause();
-                if (MessageBox.Show("Правильный ответ", "Игрок 1", MessageBoxButtons.YesNo)
-                    == DialogResult.Yes)
+                fMessage fm = new fMessage();
+                fm.lblMessage.Text = "Игрок 1";
+                players[0] = true;
+                if (fm.ShowDialog() == DialogResult.Yes) //открываем форму сообщения
                 {
                     lblCounterOne.Text =Convert.ToString(Convert.ToInt32(lblCounterOne.Text) +1);
                     //прибавляем балл в слуаче правильного ответа
@@ -139,11 +148,13 @@ namespace GuessMelody
                 }
                 GamePlay();
             }
-            if (e.KeyData == Keys.L)
+            if (players[1] == false && e.KeyData == Keys.L) //выбрана кнопка L
             {
                 GamePause();
-                if (MessageBox.Show("Правильный ответ", "Игрок 2", MessageBoxButtons.YesNo)
-                    == DialogResult.Yes)
+                fMessage fm = new fMessage();
+                fm.lblMessage.Text = "Игрок 1";
+                players[1] = true;
+                if (fm.ShowDialog() == DialogResult.Yes)                    
                 {
                     lblCounterTwo.Text = Convert.ToString(Convert.ToInt32(lblCounterOne.Text) + 1);
                     //прибавляем балл в слуаче правильного ответа
@@ -152,6 +163,15 @@ namespace GuessMelody
                 }
                 GamePlay();
             }
+        }
+
+        private void WMP_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)
+        {
+            if (Victorine.startRandom) //проверяем галку рандома
+                if (WMP.openState == WMPOpenState.wmposMediaOpen)
+                    WMP.Ctlcontrols.currentPosition =
+                        rnd.Next(0, (int)WMP.currentMedia.duration / 2); //указываем место
+
         }
     }
 }
