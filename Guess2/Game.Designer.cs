@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fGame));
             this.btnNext = new System.Windows.Forms.Button();
-            this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblCounterOne = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblMusicDuration = new System.Windows.Forms.Label();
+            this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,17 +54,6 @@
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // WMP
-            // 
-            this.WMP.Enabled = true;
-            this.WMP.Location = new System.Drawing.Point(486, 385);
-            this.WMP.Name = "WMP";
-            this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
-            this.WMP.Size = new System.Drawing.Size(164, 39);
-            this.WMP.TabIndex = 1;
-            this.WMP.Visible = false;
-            this.WMP.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.WMP_OpenStateChange);
             // 
             // label1
             // 
@@ -95,6 +84,7 @@
             this.lblCounterOne.Size = new System.Drawing.Size(24, 25);
             this.lblCounterOne.TabIndex = 4;
             this.lblCounterOne.Text = "0";
+            this.lblCounterOne.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblCounterOne_MouseClick);
             // 
             // lblCounterTwo
             // 
@@ -105,6 +95,7 @@
             this.lblCounterTwo.Size = new System.Drawing.Size(24, 25);
             this.lblCounterTwo.TabIndex = 5;
             this.lblCounterTwo.Text = "0";
+            this.lblCounterTwo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblCounterTwo_MouseClick);
             // 
             // btnPause
             // 
@@ -144,6 +135,7 @@
             this.progressBar1.Size = new System.Drawing.Size(489, 23);
             this.progressBar1.TabIndex = 10;
             this.progressBar1.Value = 50;
+            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // timer1
             // 
@@ -159,6 +151,17 @@
             this.lblMusicDuration.Size = new System.Drawing.Size(24, 25);
             this.lblMusicDuration.TabIndex = 11;
             this.lblMusicDuration.Text = "0";
+            // 
+            // WMP
+            // 
+            this.WMP.Enabled = true;
+            this.WMP.Location = new System.Drawing.Point(486, 385);
+            this.WMP.Name = "WMP";
+            this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
+            this.WMP.Size = new System.Drawing.Size(164, 39);
+            this.WMP.TabIndex = 1;
+            this.WMP.Visible = false;
+            this.WMP.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.WMP_OpenStateChange);
             // 
             // fGame
             // 

@@ -11,11 +11,12 @@ namespace GuessMelody
     static class Victorine
     {
         public static List<string> musicList = new List<string>(); //общий список песен
-        public static int gameDuration = 60;
+        public static int gameDuration = 60; //время игры
         public static int musicDuration = 10; //врмя для воспроизв музыки
         public static bool startRandom = false; //с какого трека начинать
         public static string lastFolder = ""; //последняя папка
         public static bool allDirectories = false; //вложенные папки
+        public static string musicName = ""; //название песни
 
         public static void ReadMusic()
         {

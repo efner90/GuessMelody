@@ -37,6 +37,7 @@ namespace GuessMelody
                     musicDuration = Victorine.musicDuration;
                     //int count = rnd.Next(0, musicCount);
                     WMP.URL = Victorine.musicList[count];
+                    Victorine.musicName= System.IO.Path.GetFileNameWithoutExtension(WMP.URL);//передаём название трека
                     Victorine.musicList.RemoveAt(count);
                     lblMusicCount.Text = Victorine.musicList.Count.ToString();
                     //передаём список оставшихся песен
@@ -132,7 +133,7 @@ namespace GuessMelody
         {
             if (!timer1.Enabled) return; //если таймер не включён то просто возврат, иначе код ниже
             if (players[0]==false && e.KeyData == Keys.A) 
-                //выбрана кнопка А, есчли ещё не отжимал(фолс) идём дальше и ставим тру,
+                //выбрана кнопка А, если ещё не отжимал(фолс) идём дальше и ставим тру,
                 //блокировав выбирать снова
             {
                 GamePause();
@@ -152,11 +153,11 @@ namespace GuessMelody
             {
                 GamePause();
                 fMessage fm = new fMessage();
-                fm.lblMessage.Text = "Игрок 1";
+                fm.lblMessage.Text = "Игрок 2";
                 players[1] = true;
                 if (fm.ShowDialog() == DialogResult.Yes)                    
                 {
-                    lblCounterTwo.Text = Convert.ToString(Convert.ToInt32(lblCounterOne.Text) + 1);
+                    lblCounterTwo.Text = Convert.ToString(Convert.ToInt32(lblCounterTwo.Text) + 1);
                     //прибавляем балл в слуаче правильного ответа
                     MakeMusic();
                     //музон продолжается
@@ -171,6 +172,27 @@ namespace GuessMelody
                 if (WMP.openState == WMPOpenState.wmposMediaOpen)
                     WMP.Ctlcontrols.currentPosition =
                         rnd.Next(0, (int)WMP.currentMedia.duration / 2); //указываем место
+
+        }
+                
+        private void lblCounterOne_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) //при нажатии на окно очков лкм прибавляется балл
+                (sender as Label).Text = Convert.ToString(Convert.ToInt32((sender as Label).Text) + 1);
+            if (e.Button == MouseButtons.Right) //при нажатии на окно очков пкм убавляется балл
+                lblCounterOne.Text = Convert.ToString(Convert.ToInt32(lblCounterOne.Text) - 1);
+        } //(sender as Label) является полмиорф с наслед, смотрит на конкр лейбл, который засылается
+
+        private void lblCounterTwo_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) //при нажатии на окно очков лкм прибавляется балл
+                (sender as Label).Text = Convert.ToString(Convert.ToInt32((sender as Label).Text) + 1);
+            if (e.Button == MouseButtons.Right) //при нажатии на окно очков пкм убавляется балл
+                (sender as Label).Text = Convert.ToString(Convert.ToInt32((sender as Label).Text) - 1);
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
 
         }
     }
